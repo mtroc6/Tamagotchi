@@ -1,0 +1,141 @@
+﻿@model Tamagotchi.Data.CurrentTamagotchi
+@{
+    ViewData["Title"] = "Game";
+}
+
+<link rel="stylesheet" href="~/css/Game.css" />
+
+<div class="desktop-1">
+    <svg class="window"
+         width="664"
+         height="479"
+         viewBox="0 0 664 479"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0H664V479H0V0Z" fill="#3A403D" />
+        <path d="M22 24H642V455H22V24Z" fill="white" />
+    </svg>
+
+    <div id="mainview" class="main-view">
+        <img class="placeholder-1" src="@Model.Image" />
+        <div class="hunger">Hunger</div>
+        <div class="health">Health</div>
+        <div class="energy">Energy</div>
+        <div class="hunger-stat">@Model.Hunger/@Model.Max_Hunger</div>
+        <div class="health-stat">@Model.Health/@Model.Max_Health</div>
+        <div class="energy-stat">@Model.Energy/@Model.Max_Energy</div>
+        <div class="hygiene-stat">@Model.Hygiene/@Model.Max_Hygiene</div>
+        <div class="fun-stat">@Model.Fun/@Model.Max_Fun</div>
+        <div class="hygiene">Hygiene</div>
+        <div class="fun">Fun</div>
+    </div>
+
+    <div id="allbuttons" class="main-buttons">
+        <div id="feedbutton" class="feed-button">
+            <div class="feed"></div>
+            <div class="feedtext">Feed</div>
+        </div>
+        <div id="game-ententaiment" class="game-ententaiment">
+            <div class="game-ent"></div>
+            <div class="game-ent-text">Game<br />Ententaiment</div>
+        </div>
+        <div id="clean" class="cleanbutton">
+            <div class="clean"></div>
+            <div class="clean-text">Clean</div>
+        </div>
+        <div id="sleep" class="sleep-button">
+            <div class="sleep"></div>
+            <div class="sleep-text">Sleep</div>
+        </div>
+        <div id="medicine" class="medicine-button">
+            <div class="medicine"></div>
+            <div class="medicine-text">Medicine</div>
+        </div>
+    </div>
+    <div id="game-ent-options" class="game-ent-options" style="display: none;">
+        <div class="game-ent-opt-popup"></div>
+        <div id="ttt" class="button-3">
+            <div class="uknown-game-2"></div>
+            <div class="uknown-game-22">?</div>
+        </div>
+        <div id="fruit" class="button-2">
+            <div class="uknown-game-1"></div>
+            <div class="unknown-game-1">Fruit</div>
+        </div>
+        <div id="startsrp" class="sr-pbutton">
+            <div class="srp"></div>
+            <div class="scisors-rock-paper">Scisors,<br />Rock,<br />Paper!</div>
+        </div>
+    </div>
+    <div id="stopsleep" class="stop-sleep-button">
+        <div class="stop-sleep"></div>
+        <div class="stop-sleep-text">Sleep</div>
+    </div>
+</div>
+
+
+
+<script>
+    let startsrp = document.getElementById("startsrp")
+    let ttt = document.getElementById("ttt")
+
+    let gamebutton = document.getElementById("game-ententaiment");
+    let gameEntElement = document.getElementById("game-ent-options");
+    let clean = document.getElementById("clean");
+    let cure = document.getElementById("medicine");
+    let feedbutton = document.getElementById("feedbutton");
+
+    let sleep = document.getElementById("sleep");
+    let stopsleep = document.getElementById("stopsleep");
+    let allbuttons = document.getElementById("allbuttons");
+
+    startsrp.addEventListener("click", function () {
+        window.location.href = '/Game/Srp?id=@Model.Id';
+    })
+
+    fruit.addEventListener("click", function () {
+        window.location.href = '/Game/Fruit?id=@Model.Id';
+    })
+
+    ttt.addEventListener("click", function () {
+        window.location.href = '/Game/TTT?id=@Model.Id';
+    })
+
+    if (@Model.Age_State == false) {
+        stopsleep.style.display = 'none';
+    } else {
+        allbuttons.style.display = 'none';
+    }
+
+    sleep.addEventListener("click", function () {
+        window.location.href = '/Game/SleepPet?id=@Model.Id&ageState=@Model.Age_State';
+    })
+
+    stopsleep.addEventListener("click", function () {
+        window.location.href = '/Game/StopSleepPet?id=@Model.Id&ageState=@Model.Age_State';
+    })
+
+    feedbutton.addEventListener("click", function () {
+        window.location.href = '/Game/FeedPet?id=@Model.Id';
+    })
+
+    clean.addEventListener("click", function () {
+        window.location.href = '/Game/CleanPet?id=@Model.Id';
+    })
+
+    medicine.addEventListener("click", function () {
+        window.location.href = '/Game/CurePet?id=@Model.Id';
+    })
+
+    let isVisible = false;
+
+    gamebutton.addEventListener("click", function () {
+        if (isVisible) {
+            gameEntElement.style.display = 'none';
+            isVisible = false;
+        } else {
+            gameEntElement.style.display = 'block';
+            isVisible = true;
+        }
+    })
+</script>

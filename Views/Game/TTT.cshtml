@@ -1,0 +1,433 @@
+﻿@{
+    var tamagotchiId = ViewBag.TamagotchiId;
+    ViewData["Title"] = "Game";
+}
+
+<style>
+    .desktop-2,
+    .desktop-2 * {
+        box-sizing: border-box;
+    }
+
+    .desktop-2 {
+        background: #185a23;
+        padding: 68px 308px 68px 308px;
+        width: 1127px;
+        height: 712px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .window {
+        position: absolute;
+        left: 231px;
+        top: 61px;
+        overflow: visible;
+    }
+
+    .linie {
+        position: absolute;
+        left: 384px;
+        top: 118px;
+        overflow: visible;
+    }
+
+    .pola {
+        position: absolute;
+        inset: 0;
+    }
+
+    #pole-01 {
+        background: #ffffff;
+        width: 115px;
+        height: 115px;
+        position: absolute;
+        left: 384px;
+        top: 359px;
+    }
+
+    #pole-02 {
+        background: #ffffff;
+        width: 115px;
+        height: 115px;
+        position: absolute;
+        left: 504px;
+        top: 359px;
+    }
+
+    #pole-03 {
+        background: #ffffff;
+        width: 115px;
+        height: 115px;
+        position: absolute;
+        left: 624px;
+        top: 359px;
+    }
+
+    #pole-04 {
+        background: #ffffff;
+        width: 115px;
+        height: 115px;
+        position: absolute;
+        left: 384px;
+        top: 239px;
+    }
+
+    #pole-05 {
+        background: #ffffff;
+        width: 115px;
+        height: 115px;
+        position: absolute;
+        left: 504px;
+        top: 239px;
+    }
+
+    #pole-06 {
+        background: #ffffff;
+        width: 115px;
+        height: 115px;
+        position: absolute;
+        left: 624px;
+        top: 239px;
+    }
+
+    #pole-07 {
+        background: #ffffff;
+        width: 115px;
+        height: 115px;
+        position: absolute;
+        left: 384px;
+        top: 119px;
+    }
+
+    #pole-08 {
+        background: #ffffff;
+        width: 115px;
+        height: 115px;
+        position: absolute;
+        left: 504px;
+        top: 119px;
+    }
+
+    #pole-09 {
+        background: #ffffff;
+        width: 115px;
+        height: 115px;
+        position: absolute;
+        left: 624px;
+        top: 119px;
+    }
+
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+</style>
+
+
+<div id="desktop-2" class="desktop-2">
+    <svg class="window"
+         width="664"
+         height="479"
+         viewBox="0 0 664 479"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0H664V479H0V0Z" fill="#3A403D" />
+        <path d="M22 24H642V455H22V24Z" fill="white" />
+    </svg>
+
+    <svg id="linie" class="linie"
+         width="361"
+         height="357"
+         viewBox="0 0 361 357"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+        <line x1="-0.000732422"
+              y1="118.5"
+              x2="355.999"
+              y2="118.5"
+              stroke="black"
+              stroke-width="4" />
+        <line x1="0.999268"
+              y1="238.5"
+              x2="360.999"
+              y2="238.5"
+              stroke="black"
+              stroke-width="4" />
+        <line x1="118"
+              y1="356.501"
+              x2="118"
+              y2="0.500702"
+              stroke="black"
+              stroke-width="4" />
+        <line x1="238"
+              y1="356.001"
+              x2="238"
+              y2="0.00140381"
+              stroke="black"
+              stroke-width="4" />
+    </svg>
+
+    <div id="pola" class="pola">
+        <div id="pole-01"></div>
+        <div id="pole-02"></div>
+        <div id="pole-03"></div>
+        <div id="pole-04"></div>
+        <div id="pole-05"></div>
+        <div id="pole-06"></div>
+        <div id="pole-07"></div>
+        <div id="pole-08"></div>
+        <div id="pole-09"></div>
+    </div>
+</div>
+
+<script>
+    let p1 = document.getElementById("pole-01")
+    let p2 = document.getElementById("pole-02")
+    let p3 = document.getElementById("pole-03")
+    let p4 = document.getElementById("pole-04")
+    let p5 = document.getElementById("pole-05")
+    let p6 = document.getElementById("pole-06")
+    let p7 = document.getElementById("pole-07")
+    let p8 = document.getElementById("pole-08")
+    let p9 = document.getElementById("pole-09")
+
+    let pola = document.getElementById("pola")
+    let linie = document.getElementById("linie")
+    let end = document.getElementById("desktop-2")
+
+    let p1clicked = false
+    let p2clicked = false
+    let p3clicked = false
+    let p4clicked = false
+    let p5clicked = false
+    let p6clicked = false
+    let p7clicked = false
+    let p8clicked = false
+    let p9clicked = false
+
+    let won = false
+
+    p1.addEventListener("click", function () {
+        if (p1clicked == false){
+            p1.innerHTML = `<img src="../image/cross.png" alt="cross" />`;
+            p1clicked = "user"
+            ifWon()
+            compTurn()
+            ifWon()
+        }
+    });
+    p2.addEventListener("click", function () {
+        if (p2clicked == false){
+            p2.innerHTML = `<img src="../image/cross.png" alt="cross" />`;
+            p2clicked = "user"
+            ifWon()
+            compTurn()
+            ifWon()
+        }
+    });
+    p3.addEventListener("click", function () {
+        if (p3clicked == false){
+            p3.innerHTML = `<img src="../image/cross.png" alt="cross" />`;
+            p3clicked = "user"
+            ifWon()
+            compTurn()
+            ifWon()
+        }
+    });
+    p4.addEventListener("click", function () {
+        if (p4clicked == false){
+            p4.innerHTML = `<img src="../image/cross.png" alt="cross" />`;
+            p4clicked = "user"
+            ifWon()
+            compTurn()
+            ifWon()
+        }
+    });
+    p5.addEventListener("click", function () {
+        if (p5clicked == false){
+            p5.innerHTML = `<img src="../image/cross.png" alt="cross" />`;
+            p5clicked = "user"
+            ifWon()
+            compTurn()
+            ifWon()
+        }
+    });
+    p6.addEventListener("click", function () {
+        if (p6clicked == false){
+            p6.innerHTML = `<img src="../image/cross.png" alt="cross" />`;
+            p6clicked = "user"
+            ifWon()
+            compTurn()
+            ifWon()
+        }
+    });
+    p7.addEventListener("click", function () {
+        if (p7clicked == false){
+            p7.innerHTML = `<img src="../image/cross.png" alt="cross" />`;
+            p7clicked = "user"
+            ifWon()
+            compTurn()
+            ifWon()
+        }
+    });
+    p8.addEventListener("click", function () {
+        if (p8clicked == false){
+            p8.innerHTML = `<img src="../image/cross.png" alt="cross" />`;
+            p8clicked = "user"
+            ifWon()
+            compTurn()
+            ifWon()
+        }
+    });
+    p9.addEventListener("click", function () {
+        if (p9clicked == false){
+            p9.innerHTML = `<img src="../image/cross.png" alt="cross" />`;
+            p9clicked = "user"
+            ifWon()
+            compTurn()
+            ifWon()
+        }
+    });
+
+    function compTurn() {
+        let array = []
+        if (p1clicked == false) {
+            array.push(1)
+        }
+        if (p2clicked == false) {
+            array.push(2)
+        }
+        if (p3clicked == false) {
+            array.push(3)
+        }
+        if (p4clicked == false) {
+            array.push(4)
+        }
+        if (p5clicked == false) {
+            array.push(5)
+        }
+        if (p6clicked == false) {
+            array.push(6)
+        }
+        if (p7clicked == false) {
+            array.push(7)
+        }
+        if (p8clicked == false) {
+            array.push(8)
+        }
+        if (p9clicked == false) {
+            array.push(9)
+        }
+        const randomElement = array[Math.floor(Math.random() * array.length)];
+        
+        console.log(randomElement)
+
+        if (randomElement == 1) {
+            p1.innerHTML = `<img src="../image/circle.png" alt="circle" />`;
+            p1clicked = "com"
+        }
+        if (randomElement == 2) {
+            p2.innerHTML = `<img src="../image/circle.png" alt="circle" />`;
+            p2clicked = "com"
+        }
+        if (randomElement == 3) {
+            p3.innerHTML = `<img src="../image/circle.png" alt="circle" />`;
+            p3clicked = "com"
+        }
+        if (randomElement == 4) {
+            p4.innerHTML = `<img src="../image/circle.png" alt="circle" />`;
+            p4clicked = "com"
+        }
+        if (randomElement == 5) {
+            p5.innerHTML = `<img src="../image/circle.png" alt="circle" />`;
+            p5clicked = "com"
+        }
+        if (randomElement == 6) {
+            p6.innerHTML = `<img src="../image/circle.png" alt="circle" />`;
+            p6clicked = "com"
+        }
+        if (randomElement == 7) {
+            p7.innerHTML = `<img src="../image/circle.png" alt="circle" />`;
+            p7clicked = "com"
+        }
+        if (randomElement == 8) {
+            p8.innerHTML = `<img src="../image/circle.png" alt="circle" />`;
+            p8clicked = "com"
+        }
+        if (randomElement == 9) {
+            p9.innerHTML = `<img src="../image/circle.png" alt="circle" />`;
+            p9clicked = "com"
+        }
+    }
+    
+    function ifWon() {
+        if (p1clicked == "user" && p2clicked == "user" && p3clicked == "user"){
+            won = "user";
+           pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win=win">Click here to continue</a><h1>`
+        }
+        if (p4clicked == "user" && p5clicked == "user" && p6clicked == "user"){
+                won = "user";
+               pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win=win">Click here to continue</a><h1>`
+            }
+        if (p7clicked == "user" && p8clicked == "user" && p9clicked == "user") {
+                won = "user";
+               pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win=win">Click here to continue</a><h1>`
+        }
+        if (p1clicked == "user" && p4clicked == "user" && p7clicked == "user") {
+                won = "user";
+               pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win=win">Click here to continue</a><h1>`
+        }
+        if (p2clicked == "user" && p5clicked == "user" && p8clicked == "user") {
+                won = "user";
+               pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win=win">Click here to continue</a><h1>`
+        }
+        if (p3clicked == "user" && p6clicked == "user" && p9clicked == "user") {
+                won = "user";
+               pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win=win">Click here to continue</a><h1>`
+        }
+         if (p1clicked == "user" && p5clicked == "user" && p9clicked == "user") {
+                won = "user";
+               pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win=win">Click here to continue</a><h1>`
+        }
+        if (p3clicked == "user" && p5clicked == "user" && p7clicked == "user") {
+                won = "user";
+           pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win=win">Click here to continue</a><h1>`
+        }
+        if (p1clicked == "com" && p2clicked == "com" && p3clicked == "com") {
+            won = "com";
+           pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win="false"">Click here to continue</a><h1>`
+        }
+        if (p4clicked == "com" && p5clicked == "com" && p6clicked == "com") {
+            won = "com";
+           pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win="false"">Click here to continue</a><h1>`
+        }
+        if (p7clicked == "com" && p8clicked == "com" && p9clicked == "com") {
+            won = "com";
+           pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win="false"">Click here to continue</a><h1>`
+        }
+        if (p1clicked == "com" && p4clicked == "com" && p7clicked == "com") {
+            won = "com";
+           pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win="false"">Click here to continue</a><h1>`
+        }
+        if (p2clicked == "com" && p5clicked == "com" && p8clicked == "com") {
+            won = "com";
+           pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win="false"">Click here to continue</a><h1>`
+        }
+        if (p3clicked == "com" && p6clicked == "com" && p9clicked == "com") {
+            won = "com";
+           pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win="false"">Click here to continue</a><h1>`
+        }
+        if (p1clicked == "com" && p5clicked == "com" && p9clicked == "com") {
+            won = "com";
+           pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win="false"">Click here to continue</a><h1>`
+        }
+        if (p3clicked == "com" && p5clicked == "com" && p7clicked == "com") {
+            won = "com";
+           pola.style.display = "none"; linie.style.display = "none"; end.innerHTML = `<h1>${won} won <a href="/Game/AddFun?id=@ViewBag.TamagotchiId&win="false"">Click here to continue</a><h1>`
+        }
+    }
+
+</script>

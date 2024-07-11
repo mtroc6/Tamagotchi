@@ -1,0 +1,27 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete User</h1>
+
+<p>Are you sure you want to delete this user?</p>
+
+<form asp-action="DeleteConfirmed" asp-route-id="@Model.Id">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="UserName" class="control-label"></label>
+        <input asp-for="UserName" class="form-control" disabled />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" disabled />
+    </div>
+    <!-- Dodaj inne pola zgodnie z wymaganiami ASP.NET Identity -->
+    <div class="form-group">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </div>
+</form>
+
+<a asp-action="Index">Back to List</a>

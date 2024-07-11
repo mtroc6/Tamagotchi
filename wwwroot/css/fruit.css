@@ -1,0 +1,43 @@
+﻿.desktop-1,
+.desktop-1 * {
+    box-sizing: border-box;
+}
+
+.desktop-1 {
+    background: #185a23;
+    padding: 68px 308px 68px 308px;
+    width: 1127px;
+    height: 712px;
+    position: relative;
+    overflow: hidden;
+}
+
+.window {
+    position: absolute;
+    left: 231px;
+    top: 61px;
+    overflow: visible;
+}
+
+#fruitCatcherGame {
+    position: absolute;
+    left: 231px;
+    top: 61px;
+}
+
+#basket {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    bottom: 0px;
+    transition: bottom 0.5s ease;
+}
+
+#score {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: black;
+    font-size: 24px;
+}

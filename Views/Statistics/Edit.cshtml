@@ -1,0 +1,76 @@
+﻿@model Tamagotchi.Data.Statistics
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Statistics</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Health" class="control-label"></label>
+                <input asp-for="Health" class="form-control" />
+                <span asp-validation-for="Health" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hunger" class="control-label"></label>
+                <input asp-for="Hunger" class="form-control" />
+                <span asp-validation-for="Hunger" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Energy" class="control-label"></label>
+                <input asp-for="Energy" class="form-control" />
+                <span asp-validation-for="Energy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hygiene" class="control-label"></label>
+                <input asp-for="Hygiene" class="form-control" />
+                <span asp-validation-for="Hygiene" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fun" class="control-label"></label>
+                <input asp-for="Fun" class="form-control" />
+                <span asp-validation-for="Fun" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Max_Health" class="control-label"></label>
+                <input asp-for="Max_Health" class="form-control" />
+                <span asp-validation-for="Max_Health" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Max_Hunger" class="control-label"></label>
+                <input asp-for="Max_Hunger" class="form-control" />
+                <span asp-validation-for="Max_Hunger" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Max_Energy" class="control-label"></label>
+                <input asp-for="Max_Energy" class="form-control" />
+                <span asp-validation-for="Max_Energy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Max_Hygiene" class="control-label"></label>
+                <input asp-for="Max_Hygiene" class="form-control" />
+                <span asp-validation-for="Max_Hygiene" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Max_Fun" class="control-label"></label>
+                <input asp-for="Max_Fun" class="form-control" />
+                <span asp-validation-for="Max_Fun" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

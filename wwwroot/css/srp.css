@@ -1,0 +1,497 @@
+﻿.desktop-1,
+.desktop-1 * {
+    box-sizing: border-box;
+}
+
+.desktop-1 {
+    background: #185a23;
+    padding: 68px 308px 68px 308px;
+    width: 1127px;
+    height: 712px;
+    position: relative;
+    overflow: hidden;
+}
+
+.window {
+    position: absolute;
+    left: 231px;
+    top: 61px;
+    overflow: visible;
+}
+
+.main-view {
+}
+
+.placeholder-1 {
+    width: 452px;
+    height: 314px;
+    position: absolute;
+    left: 333px;
+    top: 116px;
+}
+
+.hunger {
+    color: #000000;
+    text-align: center;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 299px;
+    top: 483px;
+}
+
+.health {
+    color: #000000;
+    text-align: center;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 413px;
+    top: 483px;
+}
+
+.energy {
+    color: #000000;
+    text-align: center;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 520px;
+    top: 483px;
+}
+
+.hunger-stat {
+    color: #000000;
+    text-align: center;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 294px;
+    top: 460px;
+}
+
+.health-stat {
+    color: #000000;
+    text-align: center;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 403px;
+    top: 460px;
+}
+
+.energy-stat {
+    color: #000000;
+    text-align: center;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 512px;
+    top: 460px;
+}
+
+.hygiene-stat {
+    color: #000000;
+    text-align: center;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 621px;
+    top: 460px;
+}
+
+.fun-stat {
+    color: #000000;
+    text-align: center;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 730px;
+    top: 460px;
+}
+
+.hygiene {
+    color: #000000;
+    text-align: center;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 622px;
+    top: 483px;
+}
+
+.fun {
+    color: #000000;
+    text-align: center;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 756px;
+    top: 483px;
+}
+
+.main-buttons {
+}
+
+.feed-button {
+    width: 102px;
+    height: 100px;
+    position: static;
+}
+
+.feed {
+    background: #d9d9d9;
+    border-radius: 10px;
+    width: 102px;
+    height: 100px;
+    position: absolute;
+    left: 233px;
+    top: 551px;
+}
+
+.feedtext {
+    color: #000000;
+    text-align: left;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 256px;
+    top: 586px;
+}
+
+.game-ententaiment {
+    width: 132px;
+    height: 100px;
+    position: static;
+}
+
+.game-ent {
+    background: #d9d9d9;
+    border-radius: 10px;
+    width: 132px;
+    height: 100px;
+    position: absolute;
+    left: 761px;
+    top: 551px;
+}
+
+.game-ent-text {
+    color: #000000;
+    text-align: center;
+    font: 400 20px "Inter", sans-serif;
+    position: absolute;
+    left: 767px;
+    top: 578px;
+}
+
+.cleanbutton {
+    width: 101px;
+    height: 100px;
+    position: static;
+}
+
+.clean {
+    background: #d9d9d9;
+    border-radius: 10px;
+    width: 101px;
+    height: 100px;
+    position: absolute;
+    left: 629px;
+    top: 551px;
+}
+
+.clean-text {
+    color: #000000;
+    text-align: left;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 647px;
+    top: 586px;
+}
+
+.sleep-button {
+    width: 102px;
+    height: 100px;
+    position: static;
+}
+
+.sleep {
+    background: #d9d9d9;
+    border-radius: 10px;
+    width: 102px;
+    height: 100px;
+    position: absolute;
+    left: 365px;
+    top: 551px;
+}
+
+.sleep-text {
+    color: #000000;
+    text-align: left;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 384px;
+    top: 586px;
+}
+
+.medicine-button {
+    width: 114px;
+    height: 100px;
+    position: static;
+}
+
+.medicine {
+    background: #d9d9d9;
+    border-radius: 10px;
+    width: 114px;
+    height: 100px;
+    position: absolute;
+    left: 491px;
+    top: 552px;
+}
+
+.medicine-text {
+    color: #000000;
+    text-align: left;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 496px;
+    top: 586px;
+}
+
+.game-ent-options {
+}
+
+.game-ent-opt-popup {
+    background: #988a8a;
+    border-radius: 10px;
+    width: 398px;
+    height: 144px;
+    position: absolute;
+    left: 495px;
+    top: 396px;
+}
+
+.button-3 {
+    width: 101px;
+    height: 100px;
+    position: static;
+}
+
+.uknown-game-2 {
+    background: #d9d9d9;
+    border-radius: 10px;
+    width: 101px;
+    height: 100px;
+    position: absolute;
+    left: 517px;
+    top: 418px;
+}
+
+.uknown-game-22 {
+    color: #000000;
+    text-align: left;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 561px;
+    top: 456px;
+}
+
+.button-2 {
+    width: 101px;
+    height: 100px;
+    position: static;
+}
+
+.uknown-game-1 {
+    background: #d9d9d9;
+    border-radius: 10px;
+    width: 101px;
+    height: 100px;
+    position: absolute;
+    left: 642px;
+    top: 418px;
+}
+
+.unknown-game-1 {
+    color: #000000;
+    text-align: left;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 688px;
+    top: 455px;
+}
+
+.sr-pbutton {
+    width: 101px;
+    height: 100px;
+    position: static;
+}
+
+.srp {
+    background: #d9d9d9;
+    border-radius: 10px;
+    width: 101px;
+    height: 100px;
+    position: absolute;
+    left: 767px;
+    top: 418px;
+}
+
+.scisors-rock-paper {
+    color: #000000;
+    text-align: left;
+    font: 400 18px "Inter", sans-serif;
+    position: absolute;
+    left: 786px;
+    top: 438px;
+}
+
+.stop-sleep-button {
+}
+
+.stop-sleep {
+    background: #d9d9d9;
+    border-radius: 10px;
+    width: 102px;
+    height: 100px;
+    position: absolute;
+    left: 512px;
+    top: 551px;
+}
+
+.stop-sleep-text {
+    color: #000000;
+    text-align: left;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 531px;
+    top: 586px;
+}
+
+.srpgame {
+    width: 434px;
+    height: 100px;
+    position: absolute;
+    left: 346px;
+    top: 378px;
+}
+
+.scissors {
+}
+
+.sci {
+    background: #d9d9d9;
+    border-radius: 10px;
+    width: 102px;
+    height: 100px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.scitext {
+    color: #000000;
+    text-align: left;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 3px;
+    top: 35px;
+}
+
+.paper {
+}
+
+.paper2 {
+    background: #d9d9d9;
+    border-radius: 10px;
+    width: 102px;
+    height: 100px;
+    position: absolute;
+    left: 166px;
+    top: 0px;
+}
+
+.papertext {
+    color: #000000;
+    text-align: left;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 184px;
+    top: 35px;
+}
+
+.rock {
+}
+
+.rock2 {
+    background: #d9d9d9;
+    border-radius: 10px;
+    width: 102px;
+    height: 100px;
+    position: absolute;
+    left: 332px;
+    top: 0px;
+}
+
+.rocktext {
+    color: #000000;
+    text-align: left;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 355px;
+    top: 35px;
+}
+
+
+.win-won {
+    position: absolute;
+    inset: 0;
+}
+
+.rectangle-1 {
+    background: #d9d9d9;
+    width: 222px;
+    height: 222px;
+    position: absolute;
+    left: 456px;
+    top: 115px;
+}
+
+.you {
+    color: #000000;
+    text-align: left;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 480px;
+    top: 176px;
+}
+
+.enemy {
+    color: #000000;
+    text-align: left;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 584px;
+    top: 176px;
+}
+
+.winlost {
+    color: #000000;
+    text-align: left;
+    font: 400 24px "Inter", sans-serif;
+    position: absolute;
+    left: 542px;
+    top: 136px;
+}
+
+.mysrp {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: 466px;
+    top: 224px;
+}
+
+.enemysrp {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: 577px;
+    top: 224px;
+}
+
+img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

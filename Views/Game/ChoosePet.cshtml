@@ -1,0 +1,47 @@
+﻿@using Tamagotchi.Data;
+@model IEnumerable<Pets>
+
+@{
+	ViewData["Title"] = "ChosePet";
+}
+
+<h1>Choose Pet</h1>
+
+<div id="petSelection">
+    @foreach (var pet in Model)
+    {
+        <div class="pet">
+            <img src="@pet.Image" alt="@pet.Name" onclick="selectPet(@pet.Id)" />
+            <p>@pet.Name</p>
+        </div>
+    }
+</div>
+
+<div id="genderSelection" style="display: none;">
+    <h2>Select Gender:</h2>
+    <button onclick="selectGender('Male')">Male</button>
+    <button onclick="selectGender('Female')">Female</button>
+</div>
+
+<button id="choosePetButton" style="display: none;" onclick="choosePet()">Choose Pet</button>
+
+<script>
+    let selectedPetId;
+    let selectedGender;
+
+    function selectPet(petId) {
+        selectedPetId = petId;
+        document.getElementById('petSelection').style.display = 'none';
+        document.getElementById('genderSelection').style.display = 'block';
+        document.getElementById('choosePetButton').style.display = 'none';
+    }
+
+    function selectGender(gender) {
+        selectedGender = gender;
+        document.getElementById('choosePetButton').style.display = 'block';
+    }
+
+    function choosePet() {
+        window.location.href = `/Game/SelectPet?id=${selectedPetId}&gender=${selectedGender}`;
+    }
+</script>

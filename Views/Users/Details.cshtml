@@ -1,0 +1,19 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>User Details</h1>
+
+<div class="form-group">
+    <label asp-for="UserName" class="control-label"></label>
+    <input asp-for="UserName" class="form-control" disabled />
+</div>
+<div class="form-group">
+    <label asp-for="Email" class="control-label"></label>
+    <input asp-for="Email" class="form-control" disabled />
+</div>
+<!-- Dodaj inne pola zgodnie z wymaganiami ASP.NET Identity -->
+
+<a asp-action="Index">Back to List</a>

@@ -1,0 +1,104 @@
+﻿@{
+    var tamagotchiId = ViewBag.TamagotchiId;
+    ViewData["Title"] = "Game";
+}
+
+<link rel="stylesheet" href="~/css/fruit.css" />
+
+<div class="desktop-1">
+    <svg class="window"
+         width="664"
+         height="479"
+         viewBox="0 0 664 479"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0H664V479H0V0Z" fill="#3A403D" />
+        <path d="M22 24H642V455H22V24Z" fill="white" />
+
+        <foreignObject id="fruitCatcherGame" width="664" height="479">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <div id="basket" style="background-color: green;"></div>
+                <div id="score">Wynik: 0</div>
+            </div>
+        </foreignObject>
+    </svg>
+</div>
+
+<script>
+    var gameArea = document.getElementById("fruitCatcherGame");
+    var basket = document.getElementById("basket");
+    var scoreElement = document.getElementById("score");
+    var score = 0;
+
+    function moveLeft() {
+        var currentPosition = parseFloat(basket.style.left) || 0;
+        basket.style.left = Math.max(0, currentPosition - 15) + "px";
+    }
+
+    function moveRight() {
+        var currentPosition = parseFloat(basket.style.left) || 0;
+        basket.style.left = Math.min(gameArea.clientWidth - basket.clientWidth, currentPosition + 15) + "px";
+    }
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+            moveLeft();
+        } else if (event.key === "ArrowRight") {
+            moveRight();
+        }
+    });
+
+    function createFruit() {
+        var fruit = document.createElement("div");
+        fruit.style.width = "20px";
+        fruit.style.height = "20px";
+        fruit.style.borderRadius = "50%";
+        fruit.style.backgroundColor = "red";
+        fruit.style.position = "absolute";
+        fruit.style.top = "0";
+        fruit.style.left = Math.random() * (gameArea.clientWidth - 20) + "px";
+        gameArea.appendChild(fruit);
+
+        var animation = setInterval(function () {
+            var currentPosition = parseFloat(fruit.style.top) || 0;
+            fruit.style.top = currentPosition + 5 + "px";
+
+            if (currentPosition > gameArea.clientHeight) {
+                gameArea.removeChild(fruit);
+                clearInterval(animation);
+                endGame();
+            }
+
+            if (currentPosition > gameArea.clientHeight - basket.clientHeight &&
+                currentPosition < gameArea.clientHeight &&
+                parseFloat(fruit.style.left) > parseFloat(basket.style.left) &&
+                parseFloat(fruit.style.left) < parseFloat(basket.style.left) + basket.clientWidth) {
+                gameArea.removeChild(fruit);
+                clearInterval(animation);
+                updateScore();
+            }
+        }, 20);
+    }
+
+    function endGame() {
+        if (score === 20) {
+            win = "win";
+        } else {
+            win = "lose";
+        }
+
+        window.location.href = '/Game/AddFun?id=@ViewBag.TamagotchiId&win=' + win;
+    }
+
+    function updateScore() {
+        if (score < 19) {
+            score += 1;
+            scoreElement.textContent = `Wynik: ${score}`;
+        } else {
+            score += 1;
+            endGame();
+        }
+    }
+
+    setInterval(createFruit, 2000);
+</script>

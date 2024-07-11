@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Tamagotchi.Data.CurrentTamagotchi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Health)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age_State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fun)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hygiene)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Energy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hunger)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Max_Health)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Max_Hunger)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Max_Energy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Max_Hygiene)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Max_Fun)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Health)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age_State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fun)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hygiene)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Energy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hunger)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Max_Health)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Max_Hunger)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Max_Energy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Max_Hygiene)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Max_Fun)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

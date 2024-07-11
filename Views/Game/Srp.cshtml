@@ -1,0 +1,150 @@
+﻿@{
+    var tamagotchiId = ViewBag.TamagotchiId;
+    ViewData["Title"] = "Game";
+}
+
+<link rel="stylesheet" href="~/css/srp.css" />
+
+<div class="desktop-1">
+    <svg class="window"
+         width="664"
+         height="479"
+         viewBox="0 0 664 479"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0H664V479H0V0Z" fill="#3A403D" />
+        <path d="M22 24H642V455H22V24Z" fill="white" />
+    </svg>
+    <div id="endgamesrp" class="win-won" style="display:none;">
+        <div class="rectangle-1"></div>
+        <div class="you">You</div>
+        <div class="enemy">Enemy</div>
+        <div id="winlost" class="winlost"></div>
+        <div id="mysrp" class="mysrp"></div>
+        <div id="enemysrp" class="enemysrp"></div>
+    </div>
+    <div id="chosesrp" class="srpgame">
+        <div id="scissors" class="scissors">
+            <div class="sci"><img src="~/image/Scissors.png"/></div>
+        </div>
+        <div id="paper" class="paper">
+            <div class="paper2"><img src="~/image/Paper.png"/></div>
+        </div>
+        <div id="rock" class="rock">
+            <div class="rock2"><img src="~/image/Rock.png" /></div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let chosesrp = document.getElementById("chosesrp")
+    let endgamesrp = document.getElementById("endgamesrp")
+
+    let paper = document.getElementById("paper");
+    let rock = document.getElementById("rock");
+    let scissors = document.getElementById("scissors");
+    let resultDiv = document.getElementById("enemysrp");
+    let resultMe = document.getElementById("mysrp");
+    let winlost = document.getElementById("winlost");
+
+    let win = "false";
+
+    paper.addEventListener("click", function () {
+        chosesrp.style.display = 'none';
+        endgamesrp.style.display = 'block';
+        let randomChoice = Math.floor(Math.random() * 3);
+        let opponentChoice;
+
+        switch (randomChoice) {
+            case 0:
+                opponentChoice = "Scissors";
+                break;
+            case 1:
+                opponentChoice = "Rock";
+                break;
+            case 2:
+                opponentChoice = "Paper";
+                break;
+        }
+        if (opponentChoice == "Scissors") {
+            winlost.textContent = `Lost`;
+        } else if (opponentChoice == "Rock") {
+            winlost.textContent = `Win`;
+            win = "win";
+        } else {
+            winlost.textContent = `Draw`;
+        }
+
+        resultDiv.innerHTML = `<img src="../image/${opponentChoice}.png" alt="${opponentChoice}" />`;
+        resultMe.innerHTML = `<img src="../image/Paper.png" alt="Paper" />`;
+
+    })
+
+    rock.addEventListener("click", function () {
+        chosesrp.style.display = 'none';
+        endgamesrp.style.display = 'block';
+        let randomChoice = Math.floor(Math.random() * 3);
+        let opponentChoice;
+
+        switch (randomChoice) {
+            case 0:
+                opponentChoice = "Scissors";
+                break;
+            case 1:
+                opponentChoice = "Rock";
+                break;
+            case 2:
+                opponentChoice = "Paper";
+                break;
+        }
+        if (opponentChoice == "Scissors") {
+            winlost.textContent = `Win`;
+            win = "win";
+        } else if (opponentChoice == "Rock") {
+            winlost.textContent = `Draw`;     
+        } else {
+            winlost.textContent = `Lost`;
+        }
+
+        resultDiv.innerHTML = `<img src="../image/${opponentChoice}.png" alt="${opponentChoice}" />`;
+        resultMe.innerHTML = `<img src="../image/Rock.png" alt="Rock" />`;
+
+    })
+
+    scissors.addEventListener("click", function () {
+        chosesrp.style.display = 'none';
+        endgamesrp.style.display = 'block';
+        let randomChoice = Math.floor(Math.random() * 3);
+        let opponentChoice;
+
+        switch (randomChoice) {
+            case 0:
+                opponentChoice = "Scissors";
+                break;
+            case 1:
+                opponentChoice = "Rock";
+                break;
+            case 2:
+                opponentChoice = "Paper";
+                break;
+        }
+        if (opponentChoice == "Scissors") {
+            winlost.textContent = `Draw`;
+        } else if (opponentChoice == "Rock") {
+            winlost.textContent = `Lost`;
+        } else {
+            winlost.textContent = `Win`;
+            win = "win";
+        }
+
+        resultDiv.innerHTML = `<img src="../image/${opponentChoice}.png" alt="${opponentChoice}" />`;
+        resultMe.innerHTML = `<img src="../image/Scissors.png" alt="Scissors" />`;
+
+    })
+
+    endgamesrp.addEventListener("click", function (){
+        window.location.href = '/Game/AddFun?id=@ViewBag.TamagotchiId&win=' + win;
+    })
+
+</script>
